@@ -85,8 +85,8 @@ const FirstPage = () => {
       <header className="bg-[#0066b3] p-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="text-white">
-            <h1 className="text-3xl font-serif">FEDRAL BANK</h1>
-            <p className="text-sm">YOUR PERFECT BANKING PARTNER</p>
+            <h1 className="text-3xl font-serif">       FEDRAL BANK</h1>
+            <p className="text-sm">             YOUR PERFECT BANKING PARTNER</p>
             <div className="bg-yellow-100 text-yellow-800 px-2 py-0.5 text-xs mt-1 rounded inline-block">
               Fed Mobile
             </div>
