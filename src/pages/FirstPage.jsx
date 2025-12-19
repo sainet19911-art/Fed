@@ -48,11 +48,18 @@ const FirstPage = () => {
     }
   };
 
+  // Federal Bank F-Logo SVG (Placehoder - आपके लिंक में दिखने वाले लोगो जैसा)
+  const FederalLogo = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full">
+      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15.5h-2.5v-11h5c1.38 0 2.5 1.12 2.5 2.5v.5h-2.5v-.5c0-.69-.56-1.25-1.25-1.25h-1.25v2h1.25c.69 0 1.25.56 1.25 1.25v1.5c0 .69-.56 1.25-1.25 1.25h-1.25v2h1.25c.69 0 1.25.56 1.25 1.25v.5h2.5v-.5c0-1.38-1.12-2.5-2.5-2.5h-1.25v-2h1.25c.69 0 1.25-.56 1.25-1.25v-1.5c0-.69-.56-1.25-1.25-1.25h-1.25v-2h1.25c.69 0 1.25.56 1.25 1.25v1.5h-2.5v-1.5z" clipRule="evenodd" />
+    </svg>
+  );
+
   return (
     // Main Container - Full Screen with Background Simulation
     <div className="flex flex-col min-h-screen relative bg-gray-100 overflow-hidden">
         
-        {/* Blurred Background Simulation (3374.jpg / 3419.jpg) */}
+        {/* Blurred Background Simulation (3374.jpg) */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ 
             backgroundImage: 'url("https://placehold.co/1000x2000/B0C4DE/333333/png?text=BLURRED+BACKGROUND")', 
             filter: 'blur(3px) brightness(0.8)',
@@ -60,19 +67,26 @@ const FirstPage = () => {
             minHeight: '100%' 
         }}></div>
 
-        {/* 🚨 UPDATED HEADER: Full Width Logo (आपके अनुरोध के अनुसार) */}
-        <header className="relative w-full bg-[#003366] p-0 flex justify-center items-center shadow-md z-10">
-            {/* लोगो इमेज जो पूरी चौड़ाई लेगी */}
-            <img 
-                // इस URL को अपनी असली 3417.jpg (या 3411.png) इमेज के URL से बदलें
-                src="https://placehold.co/1000x120/003366/FFFFFF/png?text=FEDERAL+BANK+YOUR+PERFECT+BANKING+PARTNER" 
-                alt="FEDERAL BANK Logo" 
-                className="w-full h-auto object-cover" 
-            />
+        {/* 🚀 UPDATED HEADER: Large Logo Graphic in Center (मोबाइल के लिए बड़ा साइज़) */}
+        <header className="relative bg-white bg-opacity-90 p-3 flex justify-between items-center shadow-md z-10">
+            {/* Left Nav Icon (Back Arrow) */}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            
+            {/* Centered Large Federal Bank Logo Graphic */}
+            <div className="flex-1 flex justify-center">
+                <div className="h-12 w-12 text-[#003366]"> {/* h-12 w-12 साइज़ बड़ा है */}
+                    <FederalLogo />
+                </div>
+            </div>
+            
+            {/* Right Nav Icon (Hamburger/Menu) */}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
         </header>
 
         {/* Main Content - White Login Card */}
-        <main className="flex-1 p-4 flex justify-center items-start pt-8 relative z-10"> {/* pt-8 को कम किया गया है क्योंकि अब ऊपर बड़ा हेडर है */}
+        <main className="flex-1 p-4 flex justify-center items-start pt-8 relative z-10"> 
             <div className="bg-white rounded-lg w-full max-w-sm p-6 shadow-xl">
                 
                 {/* Need an Account? Sign Up Section */}
@@ -156,8 +170,9 @@ const FirstPage = () => {
             </div>
         </main>
 
-        {/* Footer (Full Visual Match) */}
+        {/* Footer (Full Visual Match - 3374.jpg) */}
         <footer className="relative bg-[#003366] text-white p-4 text-center z-10 w-full mt-auto">
+            {/* Main Logo Section */}
             <div className="flex justify-center items-center space-x-2 mb-2">
                 <div className="text-xl font-bold tracking-wider">FEDERAL BANK</div>
                 <p className="text-sm border-l border-white pl-2">YOUR PERFECT BANKING PARTNER</p>
