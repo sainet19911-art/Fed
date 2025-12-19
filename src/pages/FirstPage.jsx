@@ -52,30 +52,27 @@ const FirstPage = () => {
     // Main Container - Full Screen with Background Simulation
     <div className="flex flex-col min-h-screen relative bg-gray-100 overflow-hidden">
         
-        {/* 🚨 UPDATED BACKGROUND: Simulating the Blurred Blue/Gray Image (3374.jpg) */}
+        {/* Blurred Background Simulation (3374.jpg / 3419.jpg) */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ 
-            // 3374.jpg के ब्लू/ग्रे टोन और ब्लर डेस्क को सिम्युलेट करने वाला बैकग्राउंड
             backgroundImage: 'url("https://placehold.co/1000x2000/B0C4DE/333333/png?text=BLURRED+BACKGROUND")', 
-            filter: 'blur(3px) brightness(0.8)', // ब्लर और थोड़ा डार्क किया गया
+            filter: 'blur(3px) brightness(0.8)',
             zIndex: 0,
-            // सुनिश्चित करें कि यह लंबा कंटेंट भी कवर करे
             minHeight: '100%' 
         }}></div>
 
-        {/* Header - (3412.jpg के अनुसार पूरा Federal Bank लोगो) */}
-        <header className="relative bg-white bg-opacity-90 p-3 flex justify-between items-center shadow-md z-10">
-            <div className="flex items-center space-x-2 w-full justify-center">
-                {/* Full Federal Bank Logo Image (Placehoder) */}
-                <img 
-                    src="https://placehold.co/300x40/003366/FFFFFF/png?text=FEDERAL+BANK" 
-                    alt="FEDERAL BANK" 
-                    className="h-8 md:h-10"
-                />
-            </div>
+        {/* 🚨 UPDATED HEADER: Full Width Logo (आपके अनुरोध के अनुसार) */}
+        <header className="relative w-full bg-[#003366] p-0 flex justify-center items-center shadow-md z-10">
+            {/* लोगो इमेज जो पूरी चौड़ाई लेगी */}
+            <img 
+                // इस URL को अपनी असली 3417.jpg (या 3411.png) इमेज के URL से बदलें
+                src="https://placehold.co/1000x120/003366/FFFFFF/png?text=FEDERAL+BANK+YOUR+PERFECT+BANKING+PARTNER" 
+                alt="FEDERAL BANK Logo" 
+                className="w-full h-auto object-cover" 
+            />
         </header>
 
         {/* Main Content - White Login Card */}
-        <main className="flex-1 p-4 flex justify-center items-start pt-16 relative z-10">
+        <main className="flex-1 p-4 flex justify-center items-start pt-8 relative z-10"> {/* pt-8 को कम किया गया है क्योंकि अब ऊपर बड़ा हेडर है */}
             <div className="bg-white rounded-lg w-full max-w-sm p-6 shadow-xl">
                 
                 {/* Need an Account? Sign Up Section */}
@@ -87,7 +84,7 @@ const FirstPage = () => {
                     <img src="https://placehold.co/60x20/FFFFFF/003366/png?text=FedNet" alt="FedNet Logo" className="h-5" />
                 </div>
 
-                {/* Login Form */}
+                {/* Login Form (Minimal 3 Fields) */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     
                     {/* 1. User ID Input */}
@@ -159,31 +156,24 @@ const FirstPage = () => {
             </div>
         </main>
 
-        {/* 🚨 UPDATED FOOTER: Full Federal Bank Blue Bar (3374.jpg) */}
+        {/* Footer (Full Visual Match) */}
         <footer className="relative bg-[#003366] text-white p-4 text-center z-10 w-full mt-auto">
-            {/* Main Logo Section */}
             <div className="flex justify-center items-center space-x-2 mb-2">
-                {/* Federal Bank Logo Text */}
                 <div className="text-xl font-bold tracking-wider">FEDERAL BANK</div>
-                {/* Tagline */}
                 <p className="text-sm border-l border-white pl-2">YOUR PERFECT BANKING PARTNER</p>
             </div>
             
-            {/* DICGC, QR Code, Privacy/Terms (Bottom Row Simulation) */}
+            {/* DICGC, QR Code, Privacy/Terms */}
             <div className="flex justify-between items-end pt-2 border-t border-gray-600">
-                
-                {/* DICGC Logo Placeholder */}
                 <div className="flex items-center space-x-2 text-xs">
                     <img src="https://placehold.co/40x20/FFFFFF/000000/png?text=DICGC" alt="DICGC" className="h-5 bg-white p-0.5 rounded" />
                     <span className="text-gray-300 hidden sm:inline">|</span>
                     <span className="text-gray-300 hidden sm:inline">A Government of India Undertaking</span>
                 </div>
                 
-                {/* Privacy & Terms Badge (Right Bottom Corner) */}
                 <div className="text-xs">
                     <p className="text-gray-300">Privacy - Terms</p>
                 </div>
-
             </div>
         </footer>
     </div>
